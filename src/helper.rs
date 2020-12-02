@@ -1,6 +1,7 @@
-use std::{fs::File, io::{BufRead, BufReader}};
-
-
+use std::{
+	fs::File,
+	io::{BufRead, BufReader},
+};
 
 /// Reads the text file for a certain day and return a `Vec<String>` of the lines
 ///
@@ -13,9 +14,11 @@ pub fn read_lines(day: u8) -> Vec<String> {
 	let file = File::open(path).expect("Could not open file");
 	let reader = BufReader::new(file);
 
-	return reader.lines().map(|x| x.expect("Could not read line")).collect();
+	return reader
+		.lines()
+		.map(|x| x.expect("Could not read line"))
+		.collect();
 }
-
 
 /// Reads the text file for a certain day and return a `Vec<i64>` of the lines
 ///
